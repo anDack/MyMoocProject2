@@ -1,0 +1,27 @@
+package com.andack.mymoocproject.util;
+
+import android.util.Log;
+
+/**
+ * 项目名称：MyMoocProject2
+ * 项目作者：anDack
+ * 项目时间：2017/1/19
+ * 邮箱：    1160083806@qq.com
+ * 描述：    对Log进行简单的封装，封装的过程和思路在我的笔记里《Log类的封装》
+ */
+
+public class L {
+    //开关
+    public static final boolean DEBUG=true;
+    //TAG
+    public static final String TAG="smartbutler";
+    //五个等级DIWEF
+    public static void d(String text){
+        if (DEBUG)
+        {
+            Log.d(TAG, "d: "+text);
+        }
+
+    }
+
+}

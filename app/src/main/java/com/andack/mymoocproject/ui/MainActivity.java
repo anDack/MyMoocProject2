@@ -1,5 +1,6 @@
 package com.andack.mymoocproject.ui;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,17 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.fragment.BluerFragment;
 import com.andack.mymoocproject.fragment.GirlsFragment;
 import com.andack.mymoocproject.fragment.UserFragment;
 import com.andack.mymoocproject.fragment.WechatFragment;
+import com.andack.mymoocproject.util.L;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickListener{
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private FloatingActionButton fab_setting;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         initData();
         initView();
+
     }
 
     private void initView() {
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        fab_setting.setOnClickListener(this);
     }
 
     private void initData() {
@@ -102,5 +106,18 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(new WechatFragment());
         mFragments.add(new GirlsFragment());
         mFragments.add(new UserFragment());
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.fab_setting:
+                Intent intent=new Intent(MainActivity.this,Setting.class);
+                L.d("test my log class!");
+                startActivity(intent);
+                break;
+        }
+
     }
 }
