@@ -1,7 +1,7 @@
 package com.andack.mymoocproject.ui;
 
 import android.os.Bundle;
-
+import com.andack.mymoocproject.R;
 /**
  * 项目名称：MyMoocProject2
  * 项目作者：anDack
@@ -14,5 +14,6 @@ public class Setting extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.set_layout);
     }
 }

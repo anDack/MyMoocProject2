@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //去掉阴影
         getSupportActionBar().setElevation(0);
         initData();
         initView();
+
 
     }
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
             @Override
             public void onPageSelected(int position) {
-                Log.i("TAG", "onPageSelected: 第 "+position+"页");
+//                Log.i("TAG", "onPageSelected: 第 "+position+"页");
                 if (position==0)
                 {
                     fab_setting.setVisibility(View.GONE);
@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         {
             case R.id.fab_setting:
                 Intent intent=new Intent(MainActivity.this,Setting.class);
-                L.d("test my log class!");
                 startActivity(intent);
                 break;
         }

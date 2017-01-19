@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class L {
     //开关
-    public static final boolean DEBUG=true;
+    public static boolean DEBUG=true;
     //TAG
     public static final String TAG="smartbutler";
     //五个等级DIWEF
