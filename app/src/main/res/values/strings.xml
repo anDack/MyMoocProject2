@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyMoocProject</string>
+    <string name="bluer">管家助手</string>
+    <string name="girls">美女社区</string>
+    <string name="wechat">微信精选</string>
+    <string name="user">用户信息</string>
+
+</resources>
