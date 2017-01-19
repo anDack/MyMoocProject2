@@ -21,7 +21,31 @@ public class L {
         {
             Log.d(TAG, "d: "+text);
         }
-
     }
+    public static void i(String text){
+        if (DEBUG)
+        {
+            Log.i(TAG, "INFO: "+text);
+        }
+    }
+    public static void w(String text){
+        if (DEBUG)
+        {
+            Log.w(TAG, "WARNING: "+text);
+        }
+    }
+    public static void e(String text){
+        if (DEBUG)
+        {
+            Log.e(TAG, "ERROR: "+text);
+        }
+    }
+    public static void f(String text){
+        if (DEBUG)
+        {
+            Log.wtf(TAG, "F: "+text);
+        }
+    }
+
 
 }
