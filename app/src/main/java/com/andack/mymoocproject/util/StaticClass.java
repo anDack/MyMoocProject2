@@ -9,4 +9,6 @@ package com.andack.mymoocproject.util;
  */
 
 public class StaticClass {
+    public static final int HANDER_SPLASH=1001;
+    public static final String SHARE_IS_FIRST="isFirst";
 }
