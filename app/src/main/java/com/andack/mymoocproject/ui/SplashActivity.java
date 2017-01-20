@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.util.ShareUtil;
 import com.andack.mymoocproject.util.StaticClass;
+import com.andack.mymoocproject.util.UtilTools;
 
 /**
  * 项目名称：MyMoocProject2
@@ -22,7 +23,7 @@ import com.andack.mymoocproject.util.StaticClass;
 public class SplashActivity extends AppCompatActivity{
     /**
      * 1.延时2000ms
-     * 2.判断程序是否第一次运行
+     * 2.判断程序是否第一次运行（全屏主题的编写）
      * 3.自定义字体
      * 4.Acitivity全屏主题
      *
@@ -74,8 +75,9 @@ public class SplashActivity extends AppCompatActivity{
     private void initView() {
         handler.sendEmptyMessageDelayed(StaticClass.HANDER_SPLASH,2000);
         tv_splash= (TextView) findViewById(R.id.tv_splash);
-
+        UtilTools.setFont(this,tv_splash);
     }
+
     //禁止返回键
 
     @Override

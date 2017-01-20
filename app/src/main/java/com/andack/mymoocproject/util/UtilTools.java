@@ -1,5 +1,9 @@
 package com.andack.mymoocproject.util;
 
+import android.content.Context;
+import android.graphics.Typeface;
+import android.widget.TextView;
+
 /**
  * 项目名称：MyMoocProject2
  * 项目作者：anDack
@@ -9,4 +13,11 @@ package com.andack.mymoocproject.util;
  */
 
 public class UtilTools {
+    //设置字体
+    public static void setFont(Context context, TextView textView){
+
+        Typeface fontType=Typeface.createFromAsset(context.getAssets(),"fonts/YYG.TTF");
+        textView.setTypeface(fontType);
+
+    }
 }
