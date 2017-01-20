@@ -17,7 +17,8 @@
 
         </activity>
         <!--引导页面-->
-        <activity android:name=".ui.GuideActivity">
+        <activity android:name=".ui.GuideActivity"
+            android:theme="@style/NoActivityFullScreen">
 
         </activity>
         <!--闪屏页面-->
