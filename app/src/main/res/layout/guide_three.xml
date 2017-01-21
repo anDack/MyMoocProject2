@@ -15,7 +15,12 @@
     <Button
         android:id="@+id/toMainActivity"
         android:text="进入程序"
-        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_background"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>
