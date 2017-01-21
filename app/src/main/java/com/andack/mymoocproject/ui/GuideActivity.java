@@ -1,11 +1,13 @@
 package com.andack.mymoocproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.andack.mymoocproject.R;
@@ -20,11 +22,13 @@ import java.util.List;
  * 邮箱：    1160083806@qq.com
  * 描述：    导引页面
  */
-public class GuideActivity extends AppCompatActivity{
+public class GuideActivity extends AppCompatActivity implements View.OnClickListener{
     private ViewPager viewPager;
     private List<View> views=new ArrayList<>();
     private View view1,view2,view3;
     private ImageView point1,point2,point3;
+    private Button toMainBtn;
+    private ImageView backMain;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class GuideActivity extends AppCompatActivity{
         point1= (ImageView) findViewById(R.id.firstPointGuide);
         point2= (ImageView) findViewById(R.id.secondPointGuide);
         point3= (ImageView) findViewById(R.id.thredPointGuide);
+        backMain= (ImageView) findViewById(R.id.back_mainActivity);
         pointChange(true,false,false);
         view1=View.inflate(this,R.layout.guide_one,null);
         view2=View.inflate(this,R.layout.guide_two,null);
@@ -46,6 +51,9 @@ public class GuideActivity extends AppCompatActivity{
         views.add(view1);
         views.add(view2);
         views.add(view3);
+        toMainBtn= (Button) view3.findViewById(R.id.toMainActivity);
+        toMainBtn.setOnClickListener(this);
+        backMain.setOnClickListener(this);
         viewPager.setAdapter(new myViewAdapter());
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -58,12 +66,15 @@ public class GuideActivity extends AppCompatActivity{
                 switch (position) {
                     case 0:
                         pointChange(true,false,false);
+                        backMain.setVisibility(View.VISIBLE);
                         break;
                     case 1:
                         pointChange(false,true,false);
+                        backMain.setVisibility(View.VISIBLE);
                         break;
                     case 2:
                         pointChange(false,false,true);
+                        backMain.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -93,6 +104,19 @@ public class GuideActivity extends AppCompatActivity{
             point3.setImageResource(R.drawable.point_off);
         }
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toMainActivity:
+            case R.id.back_mainActivity:
+                Intent intent=new Intent(GuideActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
+    }
+
     class myViewAdapter extends PagerAdapter{
 
         @Override
