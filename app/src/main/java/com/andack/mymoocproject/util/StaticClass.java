@@ -11,4 +11,5 @@ package com.andack.mymoocproject.util;
 public class StaticClass {
     public static final int HANDER_SPLASH=1001;
     public static final String SHARE_IS_FIRST="isFirst";
+    public static final String BUGLY_ID="8a75c95fa7";
 }

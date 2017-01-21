@@ -1,14 +1,13 @@
 package com.andack.mymoocproject.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -17,7 +16,6 @@ import com.andack.mymoocproject.fragment.BluerFragment;
 import com.andack.mymoocproject.fragment.GirlsFragment;
 import com.andack.mymoocproject.fragment.UserFragment;
 import com.andack.mymoocproject.fragment.WechatFragment;
-import com.andack.mymoocproject.util.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +34,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         getSupportActionBar().setElevation(0);
         initData();
         initView();
-
+        //测试Bugly的功能
+//        CrashReport.testJavaCrash();
 
     }
 
