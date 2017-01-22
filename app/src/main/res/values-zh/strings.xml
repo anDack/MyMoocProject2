@@ -9,5 +9,6 @@
     <string name="loginPassWd">密码</string>
     <string name="LoginRegisterBtn">注册</string>
     <string name="LoginLoginBtn">登录</string>
+    <string name="findPasswd">找回密码</string>
 
 </resources>

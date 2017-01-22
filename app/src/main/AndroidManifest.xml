@@ -23,6 +23,9 @@
         <activity android:name=".ui.LoginActivity"
             android:label="登录">
         </activity>
+        <activity android:name=".ui.forgetPasswdActivity"
+            android:label="忘记密码">
+        </activity>
         <activity android:name=".ui.RegisterActivity"
             android:label="注册">
         </activity>

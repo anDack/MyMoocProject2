@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andack.mymoocproject.R;
@@ -32,17 +33,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button loginBtn;
     private Button registerBtn;
     private CheckBox rembPasswd;
+    private TextView forgetPasswdTv;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         initView();
-        boolean isRember=ShareUtil.GetBool(this,"rember",false);
-        rembPasswd.setChecked(isRember);
-        if (isRember) {
-            accentEt_Login.setText(ShareUtil.GetString(this,"name",""));
-            passwdEt_Login.setText(ShareUtil.GetString(this,"passwd",""));
-        }
+
     }
 
     private void initView() {
@@ -51,9 +48,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginBtn= (Button) findViewById(R.id.loginBtn);
         registerBtn= (Button) findViewById(R.id.registerBtn);
         rembPasswd= (CheckBox) findViewById(R.id.rembPasswd);
-
+        forgetPasswdTv= (TextView) findViewById(R.id.forgetPasswdTv);
         loginBtn.setOnClickListener(this);
         registerBtn.setOnClickListener(this);
+        boolean isRember=ShareUtil.GetBool(this,"rember",false);
+        forgetPasswdTv.setOnClickListener(this);
+        rembPasswd.setChecked(isRember);
+        if (isRember) {
+            accentEt_Login.setText(ShareUtil.GetString(this,"name",""));
+            passwdEt_Login.setText(ShareUtil.GetString(this,"passwd",""));
+        }
     }
 
     @Override
@@ -89,6 +93,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.registerBtn:
                 startActivity(new Intent(this,RegisterActivity.class));
                 break;
+            case R.id.forgetPasswdTv:
+                startActivity(new Intent(this,forgetPasswdActivity.class));
+                break;
         }
     }
 
@@ -99,6 +106,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (rembPasswd.isChecked()) {
             ShareUtil.putString(this,"name",accentEt_Login.getText().toString().trim());
             ShareUtil.putString(this,"passwd",passwdEt_Login.getText().toString().trim());
+        }else {
+            ShareUtil.deleShared(this,"name");
+            ShareUtil.deleShared(this,"passwd");
         }
     }
 }
