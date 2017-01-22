@@ -4,26 +4,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp">
-
-    <EditText
-        android:id="@+id/userNameEt"
+    <android.support.design.widget.TextInputLayout
+        android:hint="用户名"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="用户名" />
-
-    <EditText
-        android:id="@+id/passwdEt"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/userNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:hint="密码"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:hint="密码" />
-
-    <EditText
-        android:id="@+id/passEt"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/passwdEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+             />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:hint="确认密码" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/passEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:hint="确认密码" />
+    </android.support.design.widget.TextInputLayout>
+
+
 
     <RadioGroup
         android:id="@+id/sexRg"
@@ -44,25 +57,38 @@
             android:layout_height="wrap_content"
             android:text="女" />
     </RadioGroup>
-    <EditText
-        android:id="@+id/ageEt"
+    <android.support.design.widget.TextInputLayout
         android:hint="年龄"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ageEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/emallEt"
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="email地址" />
-
-    <EditText
-        android:id="@+id/descEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/emallEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email地址" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:hint="描述"
-        android:lines="2" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/descEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:lines="2" />
+    </android.support.design.widget.TextInputLayout>
+
+
 
     <Button
         android:id="@+id/registerSureBtn"
