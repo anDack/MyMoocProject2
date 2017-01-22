@@ -14,6 +14,7 @@ public class UserMode extends BmobUser{
     private int age;
     private boolean sex;
     private String desc;
+    //迅速拿到get/set方法的快捷键,ALT+INS
 
     public int getAge() {
         return age;
