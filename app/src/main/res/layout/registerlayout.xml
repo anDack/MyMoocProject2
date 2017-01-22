@@ -44,6 +44,11 @@
             android:layout_height="wrap_content"
             android:text="女" />
     </RadioGroup>
+    <EditText
+        android:id="@+id/ageEt"
+        android:hint="年龄"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/emallEt"

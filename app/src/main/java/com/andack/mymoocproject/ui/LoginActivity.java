@@ -1,5 +1,6 @@
 package com.andack.mymoocproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void initView() {
         loginBtn= (Button) findViewById(R.id.loginBtn);
         registerBtn= (Button) findViewById(R.id.registerBtn);
+        loginBtn.setOnClickListener(this);
+        registerBtn.setOnClickListener(this);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.loginBtn:
                 break;
             case R.id.registerBtn:
-
+                startActivity(new Intent(this,RegisterActivity.class));
                 break;
         }
     }

@@ -12,4 +12,5 @@ public class StaticClass {
     public static final int HANDER_SPLASH=1001;
     public static final String SHARE_IS_FIRST="isFirst";
     public static final String BUGLY_ID="8a75c95fa7";
+    public static final String BMOB_ID="206c8556171583720a16e86549cd13b9";
 }

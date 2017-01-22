@@ -20,6 +20,12 @@
             android:label="设置">
 
         </activity>
+        <activity android:name=".ui.LoginActivity"
+            android:label="登录">
+        </activity>
+        <activity android:name=".ui.RegisterActivity"
+            android:label="注册">
+        </activity>
         <!--引导页面-->
         <activity android:name=".ui.GuideActivity"
             android:theme="@style/NoActivityFullScreen">
