@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-
+            android:inputType="textPassword"
              />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-
+            android:inputType="textPassword"
             android:hint="确认密码" />
     </android.support.design.widget.TextInputLayout>
 
@@ -85,6 +85,11 @@
             android:layout_height="wrap_content"
             android:hint="email地址" />
     </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:text="@string/emailSure"
+        android:textColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <android.support.design.widget.TextInputLayout
         android:hint="描述"
         android:imeOptions="actionNone"

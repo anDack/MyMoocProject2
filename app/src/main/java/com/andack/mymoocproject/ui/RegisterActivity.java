@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.entity.UserMode;
@@ -13,6 +14,7 @@ import com.andack.mymoocproject.util.ToastU;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * 项目名称：MyMoocProject2
@@ -61,7 +63,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 String age=ageEd.getText().toString().trim();
                 String name=userNameEd.getText().toString().trim();
                 String passwd=passWdEd.getText().toString().trim();
-                String email=emailEd.getText().toString().trim();
+                final String email=emailEd.getText().toString().trim();
                 String pass=passEd.getText().toString().trim();
                 String dec=descEd.getText().toString().trim();
                 //判断是否为空
@@ -94,8 +96,11 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         userMode.setUsername(name);
                         userMode.setPassword(passwd);
                         userMode.setDesc(dec);
+                        userMode.setEmail(email);
                         userMode.setAge(Integer.parseInt(age));
+
                         userMode.setSex(isGender);
+
                         userMode.signUp(new SaveListener<UserMode>() {
 
                             @Override
@@ -103,6 +108,17 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                                 if (e==null)
                                 {
                                     ToastU.m(RegisterActivity.this,"注册成功!");
+                                    userMode.requestEmailVerify(email, new UpdateListener() {
+                                        @Override
+                                        public void done(BmobException e) {
+                                            if (e==null)
+                                            {
+                                                Toast.makeText(RegisterActivity.this, "验证信息已经发送到邮箱，请确认", Toast.LENGTH_SHORT).show();
+                                            }else {
+                                                Toast.makeText(RegisterActivity.this, "发送邮件错误请重置邮箱"+e.toString(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
                                     finish();
                                 }else {
                                     ToastU.m(RegisterActivity.this,"注册失败："+e.toString());

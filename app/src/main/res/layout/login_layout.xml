@@ -1,61 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="10dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
     <android.support.design.widget.TextInputLayout
-        android:layout_marginTop="10dp"
-        android:hint="@string/loginUser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/loginUser">
+
         <EditText
+            android:id="@+id/userNameEt_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        android:hint="@string/loginPassWd"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/loginPassWd">
+
         <EditText
-
-
+            android:id="@+id/passwdEt_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="right"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
         <CheckBox
-            android:text="@string/remeberPass"
+            android:id="@+id/rembPasswd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/remeberPass" />
     </LinearLayout>
+
     <Button
         android:id="@+id/loginBtn"
-        android:text="@string/LoginLoginBtn"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/btn_background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_background"
+        android:text="@string/LoginLoginBtn"
+        android:textColor="@android:color/white" />
+
+    <Button
         android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_background"
         android:text="@string/LoginRegisterBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textColor="@android:color/white" />
 
 
 </LinearLayout>
