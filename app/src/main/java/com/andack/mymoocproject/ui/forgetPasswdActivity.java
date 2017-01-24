@@ -26,6 +26,9 @@ public class forgetPasswdActivity extends BaseActivity implements View.OnClickLi
     private EditText passwdAfterEt;
     private EditText passwdAfterSureEt;
     private Button changePsswdBtn;
+    //找回密码部分
+    private EditText getPsswdEmail;
+    private Button getPasswdBtn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,11 @@ public class forgetPasswdActivity extends BaseActivity implements View.OnClickLi
         passwdAfterEt= (EditText) findViewById(R.id.passwdAfter);
         passwdAfterSureEt= (EditText) findViewById(R.id.passwdAfterSure);
         changePsswdBtn= (Button) findViewById(R.id.resetPasswd);
+        getPsswdEmail= (EditText) findViewById(R.id.getPasswdEmail);
+        getPasswdBtn= (Button) findViewById(R.id.getPasswdBtn);
         changePsswdBtn.setOnClickListener(this);
+        getPasswdBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -68,6 +75,25 @@ public class forgetPasswdActivity extends BaseActivity implements View.OnClickLi
                     }
                 }else {
                     Toast.makeText(this, "请完整填写信息", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.getPasswdBtn:
+                final String email=getPsswdEmail.getText().toString();
+                if (!TextUtils.isEmpty(email))
+                {
+                    UserMode.resetPasswordByEmail(email, new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+                            if (e==null)
+                            {
+                                Toast.makeText(forgetPasswdActivity.this, "重置密码成功，请到邮箱进行重置操作："+email, Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(forgetPasswdActivity.this, "失败"+e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }else {
+                    Toast.makeText(this, "对不起邮箱为空", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
