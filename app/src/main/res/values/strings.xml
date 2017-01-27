@@ -12,5 +12,6 @@
     <string name="emailSure">邮箱需要验证，如果不验证将无法登录</string>
     <string name="forgetPasswd">忘记密码或修改密码?</string>
     <string name="findPasswd">找回密码</string>
+    <string name="userName_info">用户名：</string>
 
 </resources>
