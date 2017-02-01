@@ -8,8 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.andack.mymoocproject.R;
+import com.andack.mymoocproject.entity.UserMode;
+
+import cn.bmob.v3.BmobUser;
 
 /**
  * 项目名称：MyMoocProject2
@@ -40,11 +44,26 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         userAgeEt= (EditText) view.findViewById(R.id.userAge_UserInfo);
         userDecsEt= (EditText) view.findViewById(R.id.userDes_UserInfo);
         userSexEt= (EditText) view.findViewById(R.id.userSex_UserInfo);
-        userNameEt.setEnabled(false);
-        userAgeEt.setEnabled(false);
-        userSexEt.setEnabled(false);
-        userDecsEt.setEnabled(false);
+        EtSetEnabled(false);
+        setUserInfo();
         changeUserInfoBtn.setOnClickListener(this);
+    }
+
+    private void setUserInfo() {
+        UserMode userMode=BmobUser.getCurrentUser(UserMode.class);
+        if (userMode != null) {
+            userNameEt.setText(userMode.getUsername());
+        }else {
+            Toast.makeText(getActivity(), "这是Bug，兄弟，截图发给我，我给你5毛红包", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void EtSetEnabled(boolean b) {
+        userNameEt.setEnabled(b);
+        userAgeEt.setEnabled(b);
+        userSexEt.setEnabled(b);
+        userDecsEt.setEnabled(b);
     }
 
 
