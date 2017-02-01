@@ -39,4 +39,6 @@ dependencies {
     //bmob后台集成
     compile 'cn.bmob.android:http-legacy:1.0'
     compile 'cn.bmob.android:bmob-sdk:3.5.0'
+    //裁剪图片第三方库
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }

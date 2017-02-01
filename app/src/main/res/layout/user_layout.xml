@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="none"
     android:layout_width="match_parent"
      android:layout_height="wrap_content"
     >
 <LinearLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
         android:gravity="center"
+        android:background="@drawable/background"
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="200dp">
-        <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/add_pic"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorPrimary"/>
+
             <Button
                 android:id="@+id/changeUserInfoBtn"
                 android:text="修改用户信息"

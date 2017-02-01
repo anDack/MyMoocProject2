@@ -15,5 +15,8 @@
     <string name="userName_info">用户名：</string>
     <string name="surechangeuserinfo">确认修改</string>
     <string name="exitlogin">退出登录</string>
+    <string name="fromcamera">从相机选择</string>
+    <string name="from_album">从相册选择</string>
+    <string name="cancel">取消</string>
 
 </resources>
