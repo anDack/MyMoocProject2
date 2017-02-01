@@ -265,6 +265,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
      * 这里涉及到调用系统相册
      */
     private void toAlbum() {
+
         Intent intent=new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent,IMAGE_REQUEST_CODE);
