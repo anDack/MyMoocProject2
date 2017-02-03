@@ -13,4 +13,5 @@ public class StaticClass {
     public static final String SHARE_IS_FIRST="isFirst";
     public static final String BUGLY_ID="8a75c95fa7";
     public static final String BMOB_ID="206c8556171583720a16e86549cd13b9";
+    public static final String EXPRESSFIND_KEY="460ca4e16f186db9c39fbd25a5a3fae9";
 }

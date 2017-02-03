@@ -8,7 +8,7 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:hint="请输入快递公司"
-        android:text="sf"
+        android:text="ems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
@@ -16,7 +16,7 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:hint="请输入单号"
-        android:text="575677355677"
+        android:text="9890442660012"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

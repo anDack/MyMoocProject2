@@ -38,7 +38,13 @@ dependencies {
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //bmob后台集成
     compile 'cn.bmob.android:http-legacy:1.0'
-    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+    compile ('cn.bmob.android:bmob-sdk:3.5.0'){
+        exclude group: 'io.reactivex'
+    }
     //裁剪图片第三方库
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    //RXVOLLEY
+    compile ('com.kymjs.rxvolley:rxvolley:1.1.4'){
+        exclude group: 'io.reactivex'
+    }
 }
