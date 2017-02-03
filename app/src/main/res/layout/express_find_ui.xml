@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/expressCoEt"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:hint="请输入快递公司"
+        android:text="sf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/expressNumEt"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:hint="请输入单号"
+        android:text="575677355677"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/expressFindByCoBtn"
+        android:textColor="@android:color/white"
+        android:text="查询"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/findListView"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</LinearLayout>

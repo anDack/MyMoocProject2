@@ -2,7 +2,6 @@ package com.andack.mymoocproject.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,11 +20,12 @@ import android.widget.Toast;
 
 import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.entity.UserMode;
+import com.andack.mymoocproject.ui.ExpressFind;
 import com.andack.mymoocproject.ui.LoginActivity;
 import com.andack.mymoocproject.util.L;
+import com.andack.mymoocproject.util.UtilTools;
 import com.andack.mymoocproject.view.CustomDialog;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import cn.bmob.v3.BmobUser;
@@ -49,6 +49,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
     private Button chooseCancel;
     private Button chooseFromCamera;
     private Button chooseFormAlbum;
+    private Button expressFind;
     private EditText userNameEt;
     private EditText userAgeEt;
     private EditText userDecsEt;
@@ -69,10 +70,13 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         userAgeEt= (EditText) view.findViewById(R.id.userAge_UserInfo);
         userDecsEt= (EditText) view.findViewById(R.id.userDes_UserInfo);
         userSexEt= (EditText) view.findViewById(R.id.userSex_UserInfo);
+        expressFind= (Button) view.findViewById(R.id.expressFindBtn);
+        expressFind.setOnClickListener(this);
         changeUserInfoOkBtn= (Button) view.findViewById(R.id.changeUserInfoOkBtn);
         exitLogin= (Button) view.findViewById(R.id.exitLoginBtn);
         userHeadCircle= (CircleImageView) view.findViewById(R.id.profile_image);
         userHeadCircle.setOnClickListener(this);
+        UtilTools.getImg4Share(getActivity(),userHeadCircle);
         WindowManager wm = getActivity().getWindowManager();
         int width=wm.getDefaultDisplay().getWidth();
 //        int height=wm.getDefaultDisplay().getHeight();
@@ -219,6 +223,10 @@ public class UserFragment extends Fragment implements View.OnClickListener{
             case R.id.chooseFromCamera:
                 toCamera();
                 break;
+            case R.id.expressFindBtn:
+                Intent intent=new Intent(getActivity(), ExpressFind.class);
+                startActivity(intent);
+                break;
         }
     }
     public static final String PHOTO_IMAGE_FILE_NAME="fileImg.jpg";
@@ -243,8 +251,6 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         //发送数据
         intent.putExtra("return-data",true);
         startActivityForResult(intent,RES_REQUEST_CODE);
-
-
     }
     //跳转相机
 
@@ -275,14 +281,6 @@ public class UserFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //保存图片
-        BitmapDrawable drawable= (BitmapDrawable) userHeadCircle.getDrawable();
-        Bitmap bitmap=drawable.getBitmap();
-        //将bitmap压缩成字节输出流
-        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,80,byteArrayOutputStream);
-        //利用Based64将我们的字节数组输出流转换为String
-//        Byte[] bytes= byteArrayOutputStream.toByteArray();
-
+        UtilTools.putImg2Share(getActivity(),userHeadCircle);
     }
 }
