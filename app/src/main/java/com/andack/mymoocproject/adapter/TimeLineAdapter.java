@@ -45,6 +45,14 @@ public class TimeLineAdapter extends BaseAdapter {
         return position;
     }
 
+    /**
+     *
+     * @param position      位置参数
+     * @param convertView   当前的View
+     * @param parent
+     * @return
+     */
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder=null;
