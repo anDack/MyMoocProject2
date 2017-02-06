@@ -150,6 +150,13 @@ public class PhoneAreaFind extends BaseActivity implements View.OnClickListener 
         try {
             JSONObject jsonObject=new JSONObject(t);
             JSONObject jsonRes=jsonObject.getJSONObject("result");
+           String resultCode=jsonObject.getString("resultcode");
+            switch (resultCode)
+            {
+                case "203":
+                    Toast.makeText(this, "没有比这个手机号码", Toast.LENGTH_SHORT).show();
+                    break;
+            }
             String res="归属地："+jsonRes.getString("province")+" "+jsonRes.get("city")+" "+jsonRes.get("company")+" "+jsonRes.get("card");
             switch (jsonRes.getString("company"))
             {
