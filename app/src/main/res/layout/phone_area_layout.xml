@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.TextInputLayout
+        android:padding="10dp"
+        android:hint="号码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/PhoneNumEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/companyIv"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp" />
+
+        <TextView
+            android:id="@+id/areaTv"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
+            android:text="归属地："
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/OneBtn"
+                android:text="1"
+
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/TwoBtn"
+                android:text="2"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/ThreeBtn"
+                android:layout_marginRight="10dp"
+                android:text="3"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/DelBtn"
+                android:text="del"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/FourBtn"
+                android:text="4"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/FiveBtn"
+                android:text="5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/SixBtn"
+                android:text="6"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/ZeroBtn"
+                android:text="0"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/SevenBtn"
+                android:text="7"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/EightBtn"
+                android:text="8"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/NineBtn"
+                android:text="9"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/FindBtn"
+                android:text="查询"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+

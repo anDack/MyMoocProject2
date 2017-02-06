@@ -32,6 +32,9 @@
         <activity android:name=".ui.ExpressFind"
             android:label="快递查询">
         </activity>
+        <activity android:name=".ui.PhoneAreaFind"
+            android:label="归属地查询">
+        </activity>
         <!--引导页面-->
         <activity android:name=".ui.GuideActivity"
             android:theme="@style/NoActivityFullScreen">

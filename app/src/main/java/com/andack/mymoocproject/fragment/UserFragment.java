@@ -22,6 +22,7 @@ import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.entity.UserMode;
 import com.andack.mymoocproject.ui.ExpressFind;
 import com.andack.mymoocproject.ui.LoginActivity;
+import com.andack.mymoocproject.ui.PhoneAreaFind;
 import com.andack.mymoocproject.util.L;
 import com.andack.mymoocproject.util.UtilTools;
 import com.andack.mymoocproject.view.CustomDialog;
@@ -50,6 +51,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
     private Button chooseFromCamera;
     private Button chooseFormAlbum;
     private Button expressFind;
+    private Button phoneAreaBtn;
     private EditText userNameEt;
     private EditText userAgeEt;
     private EditText userDecsEt;
@@ -71,6 +73,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         userDecsEt= (EditText) view.findViewById(R.id.userDes_UserInfo);
         userSexEt= (EditText) view.findViewById(R.id.userSex_UserInfo);
         expressFind= (Button) view.findViewById(R.id.expressFindBtn);
+        phoneAreaBtn= (Button) view.findViewById(R.id.phoneAreaBtn);
         expressFind.setOnClickListener(this);
         changeUserInfoOkBtn= (Button) view.findViewById(R.id.changeUserInfoOkBtn);
         exitLogin= (Button) view.findViewById(R.id.exitLoginBtn);
@@ -93,6 +96,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         changeUserInfoBtn.setOnClickListener(this);
         changeUserInfoOkBtn.setOnClickListener(this);
         exitLogin.setOnClickListener(this);
+        phoneAreaBtn.setOnClickListener(this);
     }
     //将读取的用户信息显示在相应的位置
     private void setUserInfo() {
@@ -226,6 +230,9 @@ public class UserFragment extends Fragment implements View.OnClickListener{
             case R.id.expressFindBtn:
                 Intent intent=new Intent(getActivity(), ExpressFind.class);
                 startActivity(intent);
+                break;
+            case R.id.phoneAreaBtn:
+                startActivity(new Intent(getActivity(), PhoneAreaFind.class));
                 break;
         }
     }
