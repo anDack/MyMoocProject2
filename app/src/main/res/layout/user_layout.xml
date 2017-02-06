@@ -108,7 +108,7 @@
         <Button
             android:id="@+id/expressFindBtn"
             android:textColor="@android:color/white"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@drawable/btn_background"
             android:text="快递查询"
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
@@ -117,8 +117,8 @@
         <Button
             android:id="@+id/phoneAreaBtn"
             android:textColor="@android:color/white"
+            android:background="@drawable/btn_background"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_dark"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:text="归属地查询"

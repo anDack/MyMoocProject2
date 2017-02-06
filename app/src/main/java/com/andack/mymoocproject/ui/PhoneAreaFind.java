@@ -44,6 +44,7 @@ public class PhoneAreaFind extends BaseActivity implements View.OnClickListener 
     private Button delBtn;
     private Button findBtn;
 
+    private boolean flag=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +104,11 @@ public class PhoneAreaFind extends BaseActivity implements View.OnClickListener 
             case R.id.SevenBtn:
             case R.id.EightBtn:
             case R.id.NineBtn:
+                if (flag) {
+                    flag=false;
+                    str="";
+                    phoneEt.setText("");
+                }
                 phoneEt.setText(str+((Button)v).getText());
                 //移动光标
                 phoneEt.setSelection(str.length()+1);
@@ -159,6 +165,7 @@ public class PhoneAreaFind extends BaseActivity implements View.OnClickListener 
             }
 
             phoneArea.setText(res);
+            flag=true;
         } catch (JSONException e) {
             e.printStackTrace();
         }
