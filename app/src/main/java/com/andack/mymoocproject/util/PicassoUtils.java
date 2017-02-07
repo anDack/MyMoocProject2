@@ -19,7 +19,7 @@ import com.squareup.picasso.Transformation;
 public class PicassoUtils {
     public static void DefultLoadImg(Context context, String url, ImageView imageView)
     {
-        Picasso.with(context).load(url).into(imageView);
+        Picasso.with(context).load(url).placeholder(R.drawable.loading).into(imageView);
     }
     public static void HaveSizeLoadImg(Context context, String url, ImageView imageView,
                                        int width,int height)

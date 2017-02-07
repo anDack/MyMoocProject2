@@ -17,7 +17,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <TextView
                 android:id="@+id/titleTv"
                 android:maxLines="1"
@@ -30,10 +30,11 @@
                 android:id="@+id/sourceTv"
                 android:layout_marginTop="3dp"
                 android:textSize="14sp"
+
                 android:text="source"
-                android:gravity="end"
+                android:gravity="end|bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 
