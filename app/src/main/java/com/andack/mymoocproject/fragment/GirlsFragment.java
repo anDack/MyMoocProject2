@@ -51,7 +51,7 @@ public class GirlsFragment extends Fragment {
     private ImageView showImage;
     private Button Reflash;
     private List<String>Urls=new ArrayList<>();
-
+    //确定URL
     String Url;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
