@@ -15,4 +15,5 @@ public class StaticClass {
     public static final String BMOB_ID="206c8556171583720a16e86549cd13b9";
     public static final String EXPRESSFIND_KEY="460ca4e16f186db9c39fbd25a5a3fae9";
     public static final String PHONEQCEllCORE_KEY="68869d66c676c08f5a5ddf865b069d9b";
+    public static final String TULINROBOT_KEY="f8db17235f69f7acb5b24aba8ff947ae";
 }
