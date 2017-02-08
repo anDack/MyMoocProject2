@@ -18,5 +18,6 @@ public class StaticClass {
     public static final String TULINROBOT_KEY="f8db17235f69f7acb5b24aba8ff947ae";
     public static final String WECHAT_KEY="04ee1baa3b396e96b355ec3fd89a0c6e";
     public static final String SPEECH_KEY="589a8101";
+    public static final String SMS_ACTION="android.provider.Telephony.SMS_RECEIVED";
 
 }
