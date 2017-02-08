@@ -17,6 +17,10 @@ import com.andack.mymoocproject.adapter.ChatAdapter;
 import com.andack.mymoocproject.entity.ChatEntity;
 import com.andack.mymoocproject.util.L;
 import com.andack.mymoocproject.util.StaticClass;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SynthesizerListener;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
 
@@ -43,13 +47,23 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
     private ListView ChatLV;
     private List<ChatEntity> list= new ArrayList<>();
     private ChatAdapter adapter;
+    private SpeechSynthesizer mTts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.bluer_layout,null);
+        initSpeech();
         initView(view);
         return view;
 
+    }
+
+    private void initSpeech() {
+        mTts= SpeechSynthesizer.createSynthesizer(getActivity(), null);
+        mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");//设置发音人
+        mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
+        mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
+        mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD); //设置云端
     }
 
     private void initView(View view) {
@@ -117,6 +131,12 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
 
     private void AddLeftItem(String text)
     {
+//        if (ShareUtil.GetBool(getActivity(),"speechselect",false)) {
+//            L.i("speech_select is true");
+            Speech(text);
+//        }else {
+//            L.i("speech_select is false");
+//        }
         ChatEntity chatEntity=new ChatEntity();
         chatEntity.setType(ChatAdapter.VALUE_LEFT_TEXT);
         chatEntity.setContent(text);
@@ -137,4 +157,46 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
         //将listView滚动到最后一行
         ChatLV.setSelection(ChatLV.getBottom());
     }
-}
+    private void Speech(String text)
+    {
+        L.i("Speech 调用成功"+text);
+        mTts.startSpeaking(text, mSynListener);
+    }
+    private SynthesizerListener mSynListener = new SynthesizerListener() {
+        //会话结束回调接口，没有错误时，error为null
+        public void onCompleted(SpeechError error) {
+            if (error==null) {
+                L.i("onCompleted 接口执行");
+            }else {
+                L.i(error.toString());
+            }
+        }
+
+        //缓冲进度回调
+        //percent为缓冲进度0~100，beginPos为缓冲音频在文本中开始位置，endPos表示缓冲音频在文本中结束位置，info为附加信息。
+        public void onBufferProgress(int percent, int beginPos, int endPos, String info) {
+            L.i("进度："+percent);
+        }
+
+        //开始播放
+        public void onSpeakBegin() {
+        }
+
+        //暂停播放
+        public void onSpeakPaused() {
+        }
+
+        //播放进度回调
+        //percent为播放进度0~100,beginPos为播放音频在文本中开始位置，endPos表示播放音频在文本中结束位置.
+        public void onSpeakProgress(int percent, int beginPos, int endPos) {
+        }
+
+        //恢复播放回调接口
+        public void onSpeakResumed() {
+        }
+
+        //会话事件回调接口
+        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+        }
+    };
+    }
