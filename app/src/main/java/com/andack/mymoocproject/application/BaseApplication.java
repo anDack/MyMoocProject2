@@ -3,6 +3,7 @@ package com.andack.mymoocproject.application;
 import android.app.Application;
 
 import com.andack.mymoocproject.util.StaticClass;
+import com.iflytek.cloud.Setting;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -26,6 +27,7 @@ public class BaseApplication extends Application {
         //对bmob进行初始化
         Bmob.initialize(this,StaticClass.BMOB_ID);
         //对科大讯飞的语言合成进行集成
-        SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID +"="+StaticClass.SPEECH_KEY);
+        SpeechUtility.createUtility(this, SpeechConstant.APPID +"="+StaticClass.SPEECH_KEY);
+        Setting.setShowLog(true);
     }
 }

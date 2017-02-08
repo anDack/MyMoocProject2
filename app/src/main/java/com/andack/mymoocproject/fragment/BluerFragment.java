@@ -16,6 +16,7 @@ import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.adapter.ChatAdapter;
 import com.andack.mymoocproject.entity.ChatEntity;
 import com.andack.mymoocproject.util.L;
+import com.andack.mymoocproject.util.ShareUtil;
 import com.andack.mymoocproject.util.StaticClass;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -52,21 +53,20 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.bluer_layout,null);
-        initSpeech();
+
         initView(view);
         return view;
 
     }
 
-    private void initSpeech() {
+
+
+    private void initView(View view) {
         mTts= SpeechSynthesizer.createSynthesizer(getActivity(), null);
         mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");//设置发音人
         mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
         mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
         mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD); //设置云端
-    }
-
-    private void initView(View view) {
         sendBtn= (Button) view.findViewById(R.id.sendBtn);
 //        leftBtn= (Button) view.findViewById(R.id.leftChatBtn);
 //        rightBtn= (Button) view.findViewById(R.id.rightChatBtn);
@@ -131,12 +131,12 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
 
     private void AddLeftItem(String text)
     {
-//        if (ShareUtil.GetBool(getActivity(),"speechselect",false)) {
+        if (ShareUtil.GetBool(getActivity(),"speechselect",false)) {
 //            L.i("speech_select is true");
-            Speech(text);
-//        }else {
-//            L.i("speech_select is false");
-//        }
+            startSpeech(text);
+        }else {
+            L.i("speech_select is false");
+        }
         ChatEntity chatEntity=new ChatEntity();
         chatEntity.setType(ChatAdapter.VALUE_LEFT_TEXT);
         chatEntity.setContent(text);
@@ -157,10 +157,11 @@ public class BluerFragment extends Fragment implements View.OnClickListener {
         //将listView滚动到最后一行
         ChatLV.setSelection(ChatLV.getBottom());
     }
-    private void Speech(String text)
+    private void startSpeech(String text)
     {
         L.i("Speech 调用成功"+text);
         mTts.startSpeaking(text, mSynListener);
+
     }
     private SynthesizerListener mSynListener = new SynthesizerListener() {
         //会话结束回调接口，没有错误时，error为null
