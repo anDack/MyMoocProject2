@@ -1,5 +1,6 @@
 package com.andack.mymoocproject.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,7 +8,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -20,16 +20,20 @@ import com.andack.mymoocproject.fragment.WechatFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener{
+public class MainActivity extends CheckPermissionsActivity implements OnClickListener{
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private FloatingActionButton fab_setting;
     private List<String> mTitle;
     private List<Fragment> mFragments;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        needPermissions= new String[]{
+                Manifest.permission.RECEIVE_SMS,
+        };
         //去掉阴影
         getSupportActionBar().setElevation(0);
         initData();
