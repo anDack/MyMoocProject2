@@ -2,7 +2,9 @@ package com.andack.mymoocproject.ui;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,15 +35,28 @@ public class MainActivity extends CheckPermissionsActivity implements OnClickLis
         setContentView(R.layout.activity_main);
         needPermissions= new String[]{
                 Manifest.permission.RECEIVE_SMS,
+                Manifest.permission.SEND_SMS
+
         };
         //去掉阴影
+
         getSupportActionBar().setElevation(0);
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            } else {
+                //TODO do something you need
+            }
+        }
         initData();
         initView();
         //测试Bugly的功能
 //        CrashReport.testJavaCrash();
 
     }
+
 
     private void initView() {
         mTabLayout= (TabLayout) findViewById(R.id.myTabLayout);
