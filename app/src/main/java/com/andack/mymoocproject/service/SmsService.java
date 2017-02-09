@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.telephony.SmsMessage;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.andack.mymoocproject.R;
 import com.andack.mymoocproject.util.L;
+import com.andack.mymoocproject.view.DispatchLinayout;
 
 /**
  * 项目名称：MyMoocProject2
@@ -28,11 +30,14 @@ import com.andack.mymoocproject.util.L;
 
 public class SmsService extends Service implements View.OnClickListener {
     @Nullable
+    public static final String SYSTEM_DIALOG_RESON_KEY="reason";
+    public static final String SYSTEM_HOME_KEY="homekey";
     private SmsReceiver mReceiver;
     private String originatingAddress;
     private String messageBody;
+    private HomeKeyReceiver homeKeyReceiver;
     private WindowManager wm;
-    private View view;
+    private DispatchLinayout view;
     private WindowManager.LayoutParams layoutParams;
     private TextView originatingAddressTv;
     private TextView contentTv;
@@ -53,6 +58,9 @@ public class SmsService extends Service implements View.OnClickListener {
         filter.addAction("android.provider.Telephony.SMS_RECEIVED");
         filter.setPriority(Integer.MAX_VALUE);
         registerReceiver(mReceiver,filter);
+        homeKeyReceiver=new HomeKeyReceiver();
+        IntentFilter filter1=new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        registerReceiver(homeKeyReceiver,filter1);
         L.i("服务运行");
 
     }
@@ -120,12 +128,26 @@ public class SmsService extends Service implements View.OnClickListener {
         layoutParams.format= PixelFormat.TRANSLUCENT;
         //定义类型
         layoutParams.type=WindowManager.LayoutParams.TYPE_PHONE;
-        view=View.inflate(getApplicationContext(),R.layout.smsshow_layout,null);
+        view= (DispatchLinayout) View.inflate(getApplicationContext(),R.layout.smsshow_layout,null);
+        view.setDispatchKeyListener(mlistener);
         initView(view);
         wm.addView(view,layoutParams);
 
 
     }
+    private DispatchLinayout.DispatchKeyListener mlistener=new DispatchLinayout.DispatchKeyListener() {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+            if (keyEvent.getKeyCode()==keyEvent.KEYCODE_BACK) {
+                if (view!=null)
+                {
+                    wm.removeView(view);
+                }
+                return true;
+            }
+            return false;
+        }
+    };
 
     private void initView(View view) {
         originatingAddressTv= (TextView) view.findViewById(R.id.originatingAddressTv);
@@ -134,5 +156,26 @@ public class SmsService extends Service implements View.OnClickListener {
         originatingAddressTv.setText(originatingAddress);
         contentTv.setText(messageBody);
         sendSmsBtn.setOnClickListener(this);
+    }
+
+    private class HomeKeyReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action=intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
+            {
+                String reason=intent.getStringExtra(SYSTEM_DIALOG_RESON_KEY);
+                if (SYSTEM_HOME_KEY.equals(reason))
+                {
+                    if (view.getParent()!=null)
+                    {
+                        wm.removeView(view);
+                    }
+                }
+
+
+            }
+        }
     }
 }

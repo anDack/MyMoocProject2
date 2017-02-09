@@ -34,6 +34,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
         smsSw= (Switch) findViewById(R.id.smsLiSw);
         L.i("speechSw is "+ShareUtil.GetBool(this,"speechselect",false));
         speechSw.setChecked(ShareUtil.GetBool(this,"speechselect",false));
+        L.i("smsSw is "+ShareUtil.GetBool(this,"smsselect",false));
         smsSw.setChecked(ShareUtil.GetBool(this,"smsselect",false));
         speechSw.setOnClickListener(this);
         smsSw.setOnClickListener(this);
