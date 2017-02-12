@@ -41,6 +41,7 @@ public class MainActivity extends CheckPermissionsActivity implements OnClickLis
         //去掉阴影
 
         getSupportActionBar().setElevation(0);
+        //这里是设置特许限权的地方
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);

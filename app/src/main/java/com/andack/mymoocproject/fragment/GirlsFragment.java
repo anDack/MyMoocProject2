@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +48,7 @@ public class GirlsFragment extends Fragment {
     private GirlsAdapter adapter;
     private CustomDialog customDialog;
     private ImageView showImage;
-    private Button Reflash;
+//    private Button Reflash;
     private List<String>Urls=new ArrayList<>();
     //确定URL
     String Url;
@@ -112,30 +111,30 @@ public class GirlsFragment extends Fragment {
     }
 
     private void initView(View view) {
-        Reflash= (Button) view.findViewById(R.id.refreshBtn);
+//        Reflash= (Button) view.findViewById(R.id.refreshBtn);
         gridView= (GridView) view.findViewById(R.id.gridView);
         customDialog=new CustomDialog(getActivity(),
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
                 ,R.layout.show_girl_dialog,R.style.Theme_Dialog, Gravity.CENTER,R.style.pop_anim_style);
         showImage= (ImageView) customDialog.findViewById(R.id.girlShowIv);
-        Reflash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RxVolley.get(Url, new HttpCallback() {
-                    @Override
-                    public void onSuccess(String t) {
-                        L.e(t);
-                    }
-
-
-                    @Override
-                    public void onFailure(int errorNo, String strMsg) {
-                        super.onFailure(errorNo, strMsg);
-                    }
-                });
-            }
-        });
+//        Reflash.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RxVolley.get(Url, new HttpCallback() {
+//                    @Override
+//                    public void onSuccess(String t) {
+//                        L.e(t);
+//                    }
+//
+//
+//                    @Override
+//                    public void onFailure(int errorNo, String strMsg) {
+//                        super.onFailure(errorNo, strMsg);
+//                    }
+//                });
+//            }
+//        });
         adapter=new GirlsAdapter(getActivity(),list);
 
         gridView.setAdapter(adapter);
